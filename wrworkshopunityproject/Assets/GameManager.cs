@@ -19,12 +19,16 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log("Update");
+        //Debug.Log("Update");
     }
 
     // Late Update is called after all other updates in all scripts
 	private void LateUpdate()
 	{
-        Debug.Log("LateUpdate");
+        //Debug.Log("LateUpdate");
+	}
+    public void startGame()
+	{
+        Debug.Log("Game Started");
 	}
 }
