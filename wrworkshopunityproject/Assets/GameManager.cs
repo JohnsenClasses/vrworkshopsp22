@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+
+    public bool gameStarted;
 	
     //awake is called before all starts in other scripts
 	private void Awake()
@@ -13,6 +15,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        gameStarted = false;
         Debug.Log("Start");
     }
 
@@ -29,6 +32,7 @@ public class GameManager : MonoBehaviour
 	}
     public void startGame()
 	{
+        gameStarted = true;
         Debug.Log("Game Started");
 	}
 }
