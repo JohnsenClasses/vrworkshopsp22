@@ -15,7 +15,9 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Vector3 between = target.transform.position - this.transform.position;
         //do the movement
+        rb.AddForce(between);
     }
     public void setTarget(GameObject target)
 	{

@@ -35,4 +35,9 @@ public class GameManager : MonoBehaviour
         gameStarted = true;
         Debug.Log("Game Started");
 	}
+    public void goalScored(Goal g, Rigidbody rb)
+	{
+        GameObject.Destroy(rb.gameObject);
+        g.setGoalAllowed(true);
+	}
 }
