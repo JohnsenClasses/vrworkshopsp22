@@ -6,7 +6,7 @@ public class GameManager : MonoBehaviour
 {
 
     public bool gameStarted;
-	
+    public EnemySpawner spawner;
     //awake is called before all starts in other scripts
 	private void Awake()
 	{
@@ -15,8 +15,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        gameStarted = false;
-        Debug.Log("Start");
+        
     }
 
     // Update is called once per frame
@@ -32,12 +31,20 @@ public class GameManager : MonoBehaviour
 	}
     public void startGame()
 	{
-        gameStarted = true;
-        Debug.Log("Game Started");
-	}
+        
+        StartCoroutine(doGame());
+    }
     public void goalScored(Goal g, Rigidbody rb)
 	{
         GameObject.Destroy(rb.gameObject);
         g.setGoalAllowed(true);
 	}
+    IEnumerator doGame()
+    {
+        gameStarted = true;
+        Debug.Log("Game Started");
+
+        spawner.startSpawning(3);
+        yield return null;
+    }
 }

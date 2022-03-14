@@ -9,7 +9,7 @@ public class Goal : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        manager = GameManager.instance;
+        
     }
 
     // Update is called once per frame
