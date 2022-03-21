@@ -19,10 +19,42 @@ public class Player : MonoBehaviour
             Vector3 clickPoint = Input.mousePosition;
             Ray clickRay = myCamera.ScreenPointToRay(clickPoint);
 
-            if (Physics.Raycast(clickRay))
+
+            //RaycastHit[] hits = Physics.RaycastAll(clickRay);
+            //for (int i=0;i<hits.Length;i++)
+            //{
+
+            //    Debug.Log(hits[i].transform.name);
+            //    Rigidbody rb = hits[i].collider.attachedRigidbody;
+            //    if(rb != null)
+            //    {
+            //        Enemy enemy = rb.GetComponent<Enemy>();
+            //        if(enemy != null)
+            //        {
+            //            GameObject.Destroy(enemy.gameObject);
+            //        }
+            //    }
+
+            //}
+
+            RaycastHit hit;
+
+            int layerMask = LayerMask.GetMask("Enemies");
+            if(Physics.Raycast(clickRay,out hit, Mathf.Infinity, layerMask))
             {
-                Debug.Log("hit something");
+                Debug.Log(hit.transform.name);
+                Rigidbody rb = hit.collider.attachedRigidbody;
+                if (rb != null)
+                {
+                    Enemy enemy = rb.GetComponent<Enemy>();
+                    if (enemy != null)
+                    {
+                        GameObject.Destroy(enemy.gameObject);
+                    }
+                }
             }
+
+
         }
         
         
